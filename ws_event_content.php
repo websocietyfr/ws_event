@@ -18,27 +18,27 @@
 function ws_event_content_type() {
     // Event custom type
     $labels = array(
-        'name' => _x('Evénements', 'ws_event_content'),
-		'singular_name' => _x('Evénement', 'ws_event_content'),
-		'add_new' => _x('Ajouter', 'ws_event_content'),
-		'add_new_item' => _x('Ajouter un événement', 'ws_event_content'),
-		'edit_item' => _x('Modifier un événement', 'ws_event_content'),
-		'new_item' => _x('Nouvel événement', 'ws_event_content'),
-		'view_item' => _x('Voir l\'événement', 'ws_event_content'),
-		'search_items' => _x('Rechercher un événement', 'ws_event_content'),
-		'not_found' => _x('Aucun événement trouvé', 'ws_event_content'),
-		'not_found_in_trash' => _x('Aucun événement dans la corbeille', 'ws_event_content'),
-		'parent_item_colon' => _x('Evénement parent :', 'ws_event_content'),
-		'menu_name' => _x('Evénements', 'ws_event_content'),
+        'name' => _x('Evénements', 'ws_event_content'),// libellé du nom du type de contenu
+		'singular_name' => _x('Evénement', 'ws_event_content'),// Libellé singulier du type de contenu
+		'add_new' => _x('Ajouter', 'ws_event_content'),// Libellé du bouton d'ajout
+		'add_new_item' => _x('Ajouter un événement', 'ws_event_content'),// Libellé du bouton d'ajout d'un item (menu)
+		'edit_item' => _x('Modifier un événement', 'ws_event_content'),// libellé de modification d'un événement
+		'new_item' => _x('Nouvel événement', 'ws_event_content'),// Libellé de l'indicateur de nouvel événement
+		'view_item' => _x('Voir l\'événement', 'ws_event_content'),// Libellé de l'action permettant d'accéder à l'édition d'un adhérent
+		'search_items' => _x('Rechercher un événement', 'ws_event_content'),// Libellé lié à la recherche sur ce type de contenu
+		'not_found' => _x('Aucun événement trouvé', 'ws_event_content'),// Libellé lors de l'absence de contenu pour ce type
+		'not_found_in_trash' => _x('Aucun événement dans la corbeille', 'ws_event_content'),// Libellé pour l'absence de contenu dans la corbeille
+		'parent_item_colon' => _x('Evénement parent :', 'ws_event_content'),// Libellé pour la fonctionnaltié de contenu parent sur ce type de contenu
+		'menu_name' => _x('Evénements', 'ws_event_content'),// Libellé du menu pour ce type de contenu
     );
 
     register_post_type('ws_event',
         array(
-            'labels' => $labels,
-            'hierarchical' => false,
-		    'description' => __('Liste des événements', 'ws_event_content'),
-            'supports' => ['title', 'editor', 'author', 'thumbnail', 'revisions'],
-            'taxonomies' => array('post_tag','category'),
+            'labels' => $labels,// tableau de clés-valeurs des libellés
+            'hierarchical' => false,// Permettre la hiérarchie dans ce type de contenu (éléments parent)
+		    'description' => __('Liste des événements', 'ws_event_content'),// Description de la page principal listant les contenus associés à ce type de contenu
+            'supports' => ['title', 'editor', 'author', 'thumbnail', 'revisions'],// Définition des fonctionnalités Wordpress incluse pour ce type de contenu
+            'taxonomies' => array('category'),// Taxonomies autorisés pour ce type de contenu
             'public' => true,
             'show_ui' => true,
             'show_in_menu' => true,
@@ -192,4 +192,5 @@ function ws_event_custom_archive( $archive_template ) {
 }
 
 add_filter( 'archive_template', 'ws_event_custom_archive' ) ;
+
 
